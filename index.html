@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+  <title></title>
+
+  <!-- The javascript and css are managed by sprockets. The files can be found in the assets folder-->
+  <script type="text/javascript" src="config.js"></script>
+  <script type="text/javascript" src="assets/application.js"></script>
+  <link rel="stylesheet" href="assets/application.css">
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="assets/favicon.ico">
+
+</head>
+<!---
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="ssh-sessions" data-view="Meter" data-title="SSH sessions in the last hour" data-min="0" data-max="100"></div>
+    </li>
+-->
+
+<body>
+    <div id="container">
+      <div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="ssh-sessions" data-view="Meter" data-title="SSH sessions in the last hour" data-min="0" data-max="100"></div>
+    </li>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="puts" data-view="Number" data-title="Puts" data-moreinfo="In millions"></div>
+    </li>
+
+
+  </ul>
+  <!-- <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://dashingdemo.herokuapp.com:80/widgets/welcome</div></center> -->
+</div>
+    </div>
+  
+    
+  </body>
+</html>
