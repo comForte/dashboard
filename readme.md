@@ -5,12 +5,12 @@ and display them in a dashboard
 
 Uses JavaScript code from dashing.io, batman.js, and jquery.
 
-# Copyright and License
+# Copyright and license
 
 Copyright 2016 - comForte 21 GmbH.
 Distributed under the [MIT license](MIT-LICENSE)
 
-# Supported Web Browsers
+# Supported web browsers
 
 The dashboard works with recent firefox, chrome, and Safari browsers.  IE
 and Edge are not supported.
