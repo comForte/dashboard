@@ -12,7 +12,7 @@ Distributed under the [MIT license](MIT-LICENSE)
 
 # Supported web browsers
 
-The dashboard works with recent firefox, chrome, and Safari browsers.  IE
+The dashboard works with recent Firefox, Chrome, and Safari browsers.  IE
 and Edge are not supported.
 
 
