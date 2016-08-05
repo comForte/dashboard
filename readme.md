@@ -5,6 +5,9 @@ and display them in a dashboard
 
 Uses code from dashing.io, batman.js, and jquery.
 
+# License
+Distributed under the [MIT license](MIT-LICENSE)
+
 # Supported Web Browsers
 
 The dashboard works with recent firefox, chrome, and Safari browsers.  IE
