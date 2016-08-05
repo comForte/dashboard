@@ -7,7 +7,7 @@ Uses JavaScript code from dashing.io, batman.js, and jquery.
 
 # Copyright and License
 
-Copyright 2016 - Comforte GmbH 21.
+Copyright 2016 - comForte 21 GmbH.
 Distributed under the [MIT license](MIT-LICENSE)
 
 # Supported Web Browsers
