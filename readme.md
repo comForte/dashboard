@@ -5,6 +5,12 @@ and display them in a dashboard
 
 Uses code from dashing.io, batman.js, and jquery.
 
+# Supported Web Browsers
+
+The dashboard works with recent firefox, chrome, and Safari browsers.  IE
+and Edge are not supported.
+
+
 # Configuration
 
 Edit index.html to define the widgets in the grid, and then generate the
