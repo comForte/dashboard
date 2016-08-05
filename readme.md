@@ -3,9 +3,11 @@
 Quick demo to extract values from log files on NonStop systems
 and display them in a dashboard
 
-Uses code from dashing.io, batman.js, and jquery.
+Uses JavaScript code from dashing.io, batman.js, and jquery.
 
-# License
+# Copyright and License
+
+Copyright 2016 - Comforte GmbH 21.
 Distributed under the [MIT license](MIT-LICENSE)
 
 # Supported Web Browsers
