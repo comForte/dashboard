@@ -5,6 +5,14 @@ and display them in a dashboard
 
 Uses JavaScript code from dashing.io, batman.js, and jquery.
 
+# Changes from dashing.io
+
+On the server side this Dashboard uses a SimpleHTTP-based python
+webserver instead of Sinatra/Ruby.  
+
+Uses simple, periodic Ajax requests to query data instead of Server Sent
+Events.
+
 # Copyright and license
 
 Copyright 2016 - comForte 21 GmbH.
