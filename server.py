@@ -35,7 +35,6 @@ def dict_for(id, field, value):
     }
   }
 
-
 def get_data():
   since_time = time.strftime("%d%b%y", time.localtime(calendar.timegm(
       time.localtime()) - reporting_time_seconds))
@@ -57,5 +56,4 @@ def get_data():
 
 Handler = MyRequestHandler
 server = SocketServer.TCPServer(('0.0.0.0', 8080), Handler)
-
 server.serve_forever()
