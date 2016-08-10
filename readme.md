@@ -28,6 +28,7 @@ and Edge are not supported.
 
 Edit index.html to define the widgets in the grid, and then generate the
 json to feed each widget with the appropriate values in server.py.
+In server.py you can set the report since time duration.
 In config.js you can set the update interval.
 
 # Example: Meter widget

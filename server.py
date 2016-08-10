@@ -13,16 +13,6 @@ import json
 
 reporting_time_seconds = 4*7*24*60*60
 
-class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
-  def do_GET(self):
-    if self.path == '/data':
-      self.send_response(200)
-      self.send_header('Content-Type', 'application/json')
-      self.end_headers()
-      self.wfile.write(get_data())
-      return
-    return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
-
 def utc_now():
   return calendar.timegm(datetime.datetime.utcnow().utctimetuple())
 
@@ -53,6 +43,16 @@ def get_data():
     dict_for("top-users", "items", 
     [{"label": u[0], "value": u[1]} for u in top_users])
   ])
+
+class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+  def do_GET(self):
+    if self.path == '/data':
+      self.send_response(200)
+      self.send_header('Content-Type', 'application/json')
+      self.end_headers()
+      self.wfile.write(get_data())
+      return
+    return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
 
 Handler = MyRequestHandler
 server = SocketServer.TCPServer(('0.0.0.0', 8080), Handler)
