@@ -1,4 +1,4 @@
-var updateIntervalSeconds = 60
+var updateIntervalSeconds = 60*60
 
 function setupDataUpdater(dashingListeners) {
   function update() {
@@ -10,7 +10,7 @@ function setupDataUpdater(dashingListeners) {
         a.forEach(function(m) { dashingListeners.callbacks.message(m) })
       }
     })
-  }
+  } 
   update()
   setInterval(function() { update() }, updateIntervalSeconds*1000)
 }

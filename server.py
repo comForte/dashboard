@@ -1,28 +1,30 @@
 #!/usr/bin/env python
 import SimpleHTTPServer
 import SocketServer
-
-class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == '/data':
-          self.send_response(200)
-          self.send_header('Content-Type', 'application/json')
-          self.end_headers()
-          self.wfile.write(get_data())
-          return
-        return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
-
-import random
+import pdb
+import time
+import re
+import collections
 import os
 import subprocess
-fn = "npns01.ztc1log.txt"
-
-from datetime import datetime
+import datetime
 import calendar
 import json
 
+reporting_time_seconds = 4*7*24*60*60
+
+class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+  def do_GET(self):
+    if self.path == '/data':
+      self.send_response(200)
+      self.send_header('Content-Type', 'application/json')
+      self.end_headers()
+      self.wfile.write(get_data())
+      return
+    return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
+
 def utc_now():
-  return calendar.timegm(datetime.utcnow().utctimetuple())
+  return calendar.timegm(datetime.datetime.utcnow().utctimetuple())
 
 def dict_for(id, field, value):
   return {
@@ -33,18 +35,25 @@ def dict_for(id, field, value):
     }
   }
 
+
 def get_data():
-  count = random.randint(0, lines/3)
-  pos = random.randint(0, lines - count)
-  cmd = "tail -{} {} | head -{} | grep successful | wc -l"
-  c = subprocess.check_output(cmd.format(pos, fn, count), shell=True).split()[0]
+  since_time = time.strftime("%d%b%y", time.localtime(calendar.timegm(
+      time.localtime()) - reporting_time_seconds))
+  subprocess.check_output(("""gtacl -c "\$system.system.showlog """
+      """ \$system.zssh.sshlog2 * \\"{} 00:01:00\\"" > /tmp/log """).
+      format(since_time), shell=True)
+  user_count = int(subprocess.check_output("grep successful /tmp/log | wc -l", 
+      shell=True).split()[0])
+  u = subprocess.check_output("grep 'password verification successful "  
+      "for user' /tmp/log", shell=True)
+  # ^password verification successful for user 'username'$
+  users = map(lambda v: re.search("'([^']+)'", v).group(1), u.splitlines()) 
+  top_users = collections.Counter(users).most_common(5)
   return json.dumps([
-      dict_for("ssh-sessions", "value", int(c) + random.randint(5, 10)),
-      dict_for("puts", "current", random.randint(1, 5)),
-      dict_for("remote-ip-addresses", "points", 
-      [{"x": _, "y": random.randint(0, 50)} for _ in range (10)])])
-  
-with open(fn) as f: lines = sum(1 for _ in f)
+    dict_for("ssh-sessions", "value", user_count), 
+    dict_for("top-users", "items", 
+    [{"label": u[0], "value": u[1]} for u in top_users])
+  ])
 
 Handler = MyRequestHandler
 server = SocketServer.TCPServer(('0.0.0.0', 8080), Handler)

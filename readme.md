@@ -54,6 +54,19 @@ In config.js you can set the update interval.
 {"current":2,"id":"puts","updatedAt":1470372116}
 ```
 
+# Example: List widget
+
+```html
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+  <div data-id="top-users" data-view="List" data-unordered="true" data-title="Top users" data-moreinfo="# of times logged in"></div>
+</li>
+```
+
+```json
+{"items":[{"value":33,"label":"matt"},{"value":18,"label":"john"}],"id":"top-users","updatedAt":1470800139}
+```
+
+
 # Example: Graph widget
 
 ```html

@@ -17,23 +17,37 @@
   <link rel="icon" href="assets/favicon.ico">
 
 </head>
+<!---
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="ssh-sessions" data-view="Meter" data-title="SSH sessions in the last hour" data-min="0" data-max="100"></div>
+    </li>
+-->
 
 <body>
     <div id="container">
       <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="ssh-sessions" data-view="Meter" data-title="SSH sessions in the last hour" data-min="0" data-max="100"></div>
+      <div data-id="ssh-sessions" data-view="Meter" data-title="SSH sessions in the last month" data-min="0" data-max="1000"></div>
     </li>
 
+<!--
 <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="puts" data-view="Number" data-title="Puts" data-moreinfo="In millions"></div>
     </li>
+-->
 
+   <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="top-users" data-view="List" data-unordered="true" data-title="Top users" data-moreinfo="# of times logged in"></div>
+    </li>
+
+
+<!--
   <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="remote-ip-addresses" data-view="Graph" data-title="Remote IP Addresses" style="background-color:#ff9618"></div>
     </li>
 
+-->
 
   </ul>
   <!-- <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://dashingdemo.herokuapp.com:80/widgets/welcome</div></center> -->
