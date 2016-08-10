@@ -7,10 +7,10 @@ Uses JavaScript code from dashing.io, batman.js, and jquery.
 
 # Changes from dashing.io
 
-On the server side this Dashboard uses a SimpleHTTP-based python
+On the server side this dashboard uses a SimpleHTTP-based Python
 webserver instead of Sinatra/Ruby.  
 
-Uses simple, periodic Ajax requests to query data instead of Server Sent
+Uses simple, periodic ajax requests to query data instead of Server Sent
 Events.
 
 # Copyright and license
